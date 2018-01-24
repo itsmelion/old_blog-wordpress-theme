@@ -12,7 +12,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 const extractSass = new ExtractTextWebpackPlugin({
-    filename: '[name].[contenthash:8].css',
+    filename: '[name].css',
     disable: false,
 });
 
@@ -26,7 +26,7 @@ const config = {
         main: './src/index.ts',
     },
     output: {
-        filename: '[name].[hash:8].js',
+        filename: '[name].js',
         path: path.join(__dirname, process.env.themeDirectory),
         publicPath: process.env.themeDirectory,
     },
@@ -40,7 +40,7 @@ const config = {
         ]),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'commons',
-            filename: 'commons.[hash:8].js',
+            filename: 'commons.js',
             minChunks: Infinity
         }),
         // new HtmlWebpackPlugin({
@@ -119,7 +119,7 @@ const config = {
                 loader: 'url-loader',
                 query: {
                     limit: 5000,
-                    name: '[name].[hash:8].[ext]',
+                    name: '[name].[ext]',
                 },
             },
             {
@@ -151,14 +151,5 @@ if (process.env.NODE_ENV === 'development') {
     config.watch = true;
     config.devtool = 'source-map';
     config.plugins.push(new webpack.HotModuleReplacementPlugin());
-} else if (process.env.NODE_ENV === 'hot') {
-    config.watch = true;
-    config.devtool = 'source-map';
-    config.devServer = {
-        hot: true,
-        historyApiFallback: true
-    };
-    config.plugins.push(new webpack.HotModuleReplacementPlugin());
 }
-
 module.exports = config;

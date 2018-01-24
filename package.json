@@ -4,12 +4,9 @@
     "description": "A Generic configuration for scaffolding Web projects using ES6 or Typescript",
     "main": "index.js",
     "scripts": {
-        "start": "NODE_ENV=development webpack --progress --colors | PORT=8080 nodemon server.js",
-        "build:dev": "NODE_ENV=development webpack --progress --colors",
-        "build": "webpack --progress --colors",
-        "serve": "webpack --progress --colors && npm run express",
-        "hot": "NODE_ENV=hot webpack-dev-server --progress --colors",
-        "express": "PORT=8080 node server.js"
+        "start": "NODE_ENV=development webpack --progress --colors --watch",
+        "build:dev": "NODE_ENV=development webpack --progress --colors --watch",
+        "build": "webpack --progress --colors"
     },
     "repository": {
         "type": "git",
@@ -36,7 +33,7 @@
         "babel-core": "^6.26.0",
         "babel-loader": "^7.1.2",
         "babel-preset-env": "^1.6.1",
-        "browser-sync": "^2.23.5",
+        "browser-sync": "^2.23.6",
         "browser-sync-webpack-plugin": "^1.2.0",
         "bs-fullscreen-message": "^1.1.0",
         "clean-webpack-plugin": "^0.1.17",
