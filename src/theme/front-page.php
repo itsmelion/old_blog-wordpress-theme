@@ -21,26 +21,26 @@ endif;
 </style>
 
 <header id="front-page" class="layout-column-center flex this-header" role="banner">
-    <div class="flex layout-row-nowrap-center">
+    <div class="flex contain">
         <h1>
             <?php the_field('hero'); ?>
         </h1>
+        <div class="ctas">
+            <a class="button" style="background-color: <?php the_field('prime-cta-color') ?>;" href="<?php the_field('prime-cta-url'); ?>">
+                <?php the_field('prime-cta-text'); ?>
+            </a>
+            <a class="button" style="background-color: <?php the_field('alt-cta-color') ?>;" href="<?php the_field('alt-cta-url');?>">
+                <?php the_field('alt-cta-text'); ?>
+            </a>
+        </div>
     </div>
-    <div class="flex ctas">
-        <a class="button" style="background-color: <?php the_field('prime-cta-color') ?>;" href="<?php the_field('prime-cta-url'); ?>">
-            <?php the_field('prime-cta-text'); ?>
-        </a>
-        <a class="button" style="background-color: <?php the_field('alt-cta-color') ?>;" href="<?php the_field('alt-cta-url');?>">
-            <?php the_field('alt-cta-text'); ?>
-        </a>
-    </div>
-
 </header>
 
 <?php include 'components/sections.php'; ?>
 
 <section id="posts5">
-    <h2>Fulfill your career potential with our HR experts' advice</h2>
+<div class=contain>
+<h2>Fulfill your career potential with our HR experts' advice</h2>
     <div id="postsSlick" class="layout-row-nowrap-stretch">
     <?php $the_query = new WP_Query( 'posts_per_page=9' );while ($the_query -> have_posts()) : $the_query -> the_post(); $img_url = get_the_post_thumbnail_url(get_the_ID(),'medium'); ?>
 
@@ -61,6 +61,7 @@ endif;
 
         <?php endwhile; wp_reset_postdata(); ?>
     </div>
+</div>
 </section>
 
 <!-- get_template_part('loop', 'tips'); -->

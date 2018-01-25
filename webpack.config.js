@@ -69,7 +69,7 @@ const config = {
                 ignoreInitial: true,
                 ignored: './src'
             },
-            injectChanges: true,
+            // injectChanges: true,
             ui: false,
             ghostMode: false,
             logPrefix: process.env.appName,

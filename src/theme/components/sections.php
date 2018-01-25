@@ -5,7 +5,7 @@
 			if( get_row_layout() == 'Article | Image' ): ?>
 
 				<section
-          class="layout-row-nowrap-<?php echo get_sub_field('reverse') ? 'reverse' : ''; ?> dual"
+          class="contain layout-row-nowrap-<?php echo get_sub_field('reverse') ? 'reverse' : ''; ?> dual"
           style="color:<?php echo get_sub_field('font_color_override');  ?>"
         >
 					<article class="flex-start layout-column">

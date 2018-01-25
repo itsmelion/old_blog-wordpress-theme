@@ -257,13 +257,11 @@
 }
 
 #posts5 {
-    // flex: 0 1 auto;
     position: relative;
     background-color: #fafafa;
-    padding: 2rem 0;
+    padding: 3rem 0;
     width: 100%;
-    flex-direction: column;
-    >h2 {
+    h2 {
         display: block;
         margin: 2rem;
         margin-bottom: 4rem;
@@ -274,9 +272,7 @@
         align-content: flex-start;
     }
     p, h3{
-        font-family: 'Courier New', Courier, monospace;
         text-align: left;
-        text-justify: none;
     }
     .slick-arrow {
         position: absolute;
@@ -315,10 +311,10 @@
     .slick-slide {
         margin: 1rem .5rem;
     }
-    #postsSlick {
-        width: 85%;
-        margin-left: 7.25%;
-    }
+    // #postsSlick {
+    //     width: 85%;
+    //     margin-left: 7.25%;
+    // }
 }
 
 .posts-home {
