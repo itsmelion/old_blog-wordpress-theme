@@ -2,9 +2,13 @@ if (module && module.hot) {
     module.hot.accept();
 }
 
-import moment from 'moment';
+import "jquery/dist/jquery";
+import "pace-js"; // pace-js/pace.js
+import "slick-carousel"; // slick-carousel/slick/slick
+import "src/scripts/vendors/*.js";
+import "tether"; // tether/dist/js/tether
+import "tether-drop"; // tether-drop/dist/js/drop
+
 import './main.scss';
 
-window.document.getElementsByTagName('main')[0]
-    .innerHTML = `<h2>Right now is: <b>
-    ${moment().format('DD/MM/YYYY hh:mm:ss')}</b></h2>`;
+console.log("Loaded Index.ts");

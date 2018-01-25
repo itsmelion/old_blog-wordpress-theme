@@ -1,0 +1,10 @@
+header {
+	background-size: cover;
+	background-position: center;
+	>div {
+		max-width: 72%;
+	}
+	@media screen and (max-width: 48em) {
+		background-attachment: scroll;
+	}
+}

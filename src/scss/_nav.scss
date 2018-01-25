@@ -1,0 +1,286 @@
+#scroll-cta-div {
+  a {
+    padding: 4px 21px;
+    line-height: 2;
+  }
+}
+
+.ghost-nav {
+  height: 4rem;
+  display: flex;
+}
+
+nav {
+  list-style: none;
+  background: white;
+  padding: 0 36px;
+  @include shadow;
+  width: 100%;
+  z-index: 999;
+  position: fixed;
+  @media #{$grid-sm} {
+    padding-right: 0;
+  }
+  .button {
+    padding: 12px 18px;
+    font-size: 100%;
+    text-transform: none;
+    box-shadow: none;
+    margin-left: 1rem;
+    &.outline {
+      background-color: transparent;
+      transition: .3s ease;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+  .menu {
+    >li {
+      margin-right: .4rem;
+      position: relative; // display: flex;
+      @include transition;
+      &:hover {
+        background-color: rgba(black, .05);
+      }
+      a {
+        display: flex;
+        padding: 21px;
+        width: 100%;
+        height: 100%;
+        white-space: nowrap;
+        position: relative;
+        color: $color;
+        line-height: 1;
+        font-size: 100%;
+        &:visited {
+          color: lighten($color, 10%);
+        }
+      }
+    }
+  }
+  &.noshadow {
+    box-shadow: none;
+    .current-menu-item {
+      border-bottom: 1px solid transparent;
+    }
+  }
+  .current-menu-item {
+    background-color: rgba(black, .05);
+    border-bottom: 1px solid $main-color;
+  }
+}
+
+.menu-item-has-children {
+  position: relative;
+  padding-right: 24px;
+  >a {
+    pointer-events: none;
+  }
+  &:hover::after,
+  &:focus::after {
+    opacity: .2;
+  }
+  &:after {
+    transition: opacity .2s;
+    content: '';
+    width: 24px;
+    height: 24px;
+    display: block;
+    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iNTEycHgiIGlkPSJMYXllcl8xIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgd2lkdGg9IjUxMnB4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cG9seWdvbiBwb2ludHM9IjM5Ni42LDE2MCA0MTYsMTgwLjcgMjU2LDM1MiA5NiwxODAuNyAxMTUuMywxNjAgMjU2LDMxMC41ICIvPjwvc3ZnPg==");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    opacity: .1;
+    margin-top: -12px;
+    @media #{$grid-sm} {
+      display: none;
+    }
+  }
+}
+
+.drop-element,
+.sub-menu {
+  min-width: 285px;
+  margin-top: -8px;
+  display: none;
+  z-index: 998;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.drop-element.drop-open {
+  display: block;
+}
+
+.drop-content {
+  background: #f5f5f5;
+  list-style: none;
+  border: 1pt solid #e5e5e5;
+  border-radius: $radius;
+  min-width: 285px;
+  .menu-item {
+    padding: 1rem;
+    max-width: 250pt;
+    min-width: 120px;
+    border-bottom: 1pt solid rgba(black, .05);
+    &:first-of-type {
+      margin-top: 24px;
+    }
+    &:hover {
+      background-color: rgba(black, .025)
+    }
+    a {
+      display: block;
+      color: $black5;
+      line-height: $radius;
+      padding: $radius;
+      padding-left: $radius;
+    }
+  }
+}
+
+.menu-logo {
+  a {
+    height: 100%;
+    display: flex;
+    position: relative;
+    img {
+      position: relative;
+      height: 2rem;
+      margin-top: 1rem;
+      margin: auto 0;
+      width: auto;
+    }
+  }
+}
+
+.mobile-menu-toggle {
+  padding: .8rem 1.5rem;
+}
+
+.overlay {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: $black8;
+  transition: all 450ms cubic-bezier(0.32, 1, 0.23, 1) 0ms;
+  z-index: 1101;
+  .gaveta {
+    position: fixed;
+    display: block;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 1rem 2rem;
+    padding-bottom: 2rem;
+    box-sizing: border-box;
+    transform: translate(0, -100%);
+    transition: all 450ms cubic-bezier(0.32, 1, 0.23, 1) 100ms;
+    z-index: 1102;
+    .menu-item-has-children {
+      border: 1px solid rgba(black, .06);
+      background-color: #fafafa;
+    }
+    ul {
+      margin-top: 2.8rem;
+      width: 100%;
+      li {
+        width: 100%;
+        position: relative;
+        border-bottom: 1px solid rgba(black, .05);
+        font-size: 1.25rem;
+        flex: 1 0 auto;
+        &:last-of-type {
+          border-bottom-color: transparent;
+        }
+        a {
+          color: $color;
+          padding: 1rem;
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: relative;
+        }
+      }
+      &.sub-menu {
+        @media #{$grid-sm} {
+          margin-top: 1rem;
+          display: flex;
+          flex-direction: column;
+          max-height: 300px;
+          max-height: 25vh;
+          overflow-y: auto;
+          li {
+            width: 100%;
+            display: flex;
+            font-size: 1rem;
+            border: none;
+            &:last-of-type {
+              padding-bottom: 2rem;
+            }
+            a {
+              margin-left: 3rem;
+              margin-right: 2rem;
+              border: 1px solid transparent;
+              border-bottom-color: rgba(black, .05);
+              color: $black8;
+            }
+          }
+        }
+      }
+    }
+  }
+  .btn-close {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    font-weight: bold;
+    padding: 1rem;
+  }
+  &:target {
+    z-index: 1104;
+    display: block;
+    opacity: 1;
+    top: 0;
+    .gaveta {
+      transform: translate(0, 0);
+      z-index: 1105;
+    }
+  }
+}
+
+.blog-menu {
+  background-color: #f5f5f5;
+  padding: 0 36px;
+  li {
+    margin-right: 1rem;
+    @media #{$grid-sm} {
+      width: 100%;
+      margin: 0;
+      a {
+        font-size: .8rem;
+        padding: .5rem;
+      }
+    }
+    a {
+      padding: 1rem;
+      display: block;
+      height: 100%;
+      width: 100%;
+      border-bottom: 3px solid transparent;
+      &:hover {
+        border-bottom-color: $main-color;
+      }
+    }
+    &.current-menu-item {
+      a {
+        background-color: rgb(231, 244, 247);
+        border-bottom: 3px solid $main-color;
+      }
+    }
+  }
+}

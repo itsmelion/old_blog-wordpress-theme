@@ -1,0 +1,50 @@
+html,
+body {
+    color: $color;
+    font-family: 'Montserrat', 'Open Sans', sans-serif;
+    min-height: 100vh;
+    overflow: auto;
+}
+
+section.default {
+    padding: 5rem 0;
+}
+
+// body.drop-open {
+//   // Try to fix stacked scrolls mess.
+//   overflow: hidden;
+//   max-height: 100%;
+//   max-height: 100vh;
+// }
+.contain {
+    max-width: 78em;
+    @media #{$grid-sm} {
+        padding: 0 1rem;
+    }
+}
+
+a[href]:not(.button) {
+    color: $main-color;
+    &:hover {
+        color: lighten($main-color, 20%);
+    }
+}
+
+.text-bold {
+    font-weight: bolder;
+    letter-spacing: .1rem;
+}
+
+@mixin outline-button($main-color) {
+    background-color: transparent;
+    color: $main-color;
+    border: 1px solid $main-color;
+    transition: .3s ease;
+    &:visited {
+        color: $main-color;
+    }
+    &:hover {
+        background-color: $main-color;
+        color: white;
+    }
+}

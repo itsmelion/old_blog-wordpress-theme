@@ -1,0 +1,26 @@
+/**
+
+Theme Name: PlanetExpat
+
+Theme Description: PlanetExpat custom Theme
+Theme URI: http://www.your-theme-support-website.com/
+Description: A theme
+Version: 1.1
+Author: Christhopher Lion
+Author URI: http://www.intuite.ch/
+
+*/
+
+@import "vars";
+@import "../../node_modules/flamework/flamework.scss";
+@import "vendor/pace-theme-flash";
+@import "vendor/drop";
+@import "vendor/slick";
+@import "vendor/mailchimp";
+@import "base";
+@import "components";
+@import "typography";
+@import "nav";
+@import "header";
+@import "footer";
+@import "content";
