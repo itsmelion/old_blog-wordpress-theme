@@ -1,20 +1,21 @@
 $(function () {
     "use strict";
     if (document.documentElement.clientWidth < 899) {
-        var scrollLock = function (toggle) {
+        const scrollLock = function (toggle) {
             if (toggle) {
                 $("body").css("overflow", "hidden");
             } else {
                 $("body").css("overflow", "visible");
             }
         };
+        scrollLock();
     }
 
     if (document.documentElement.clientWidth > 900) {
         (function () {
-            var setupExamples = function () {
+            const setupExamples = function () {
                 return $('.menu-item-has-children').each(function () {
-                    var item, target, content, drop;
+                    let item, target, content, drop;
                     item = this;
                     target = item; //item.querySelector('.drop-target')
                     content = item.querySelector('.sub-menu').innerHTML;

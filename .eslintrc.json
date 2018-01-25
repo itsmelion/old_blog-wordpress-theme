@@ -49,6 +49,7 @@
 
     },
     "globals": {
-        "$": false
+        "$": false,
+        "slick": false
     }
 }

@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
@@ -16,11 +16,11 @@ const extractSass = new ExtractTextWebpackPlugin({
     disable: false,
 });
 
-const minify = {
-    collapseWhitespace: true,
-    conservativeCollapse: true,
-    removeComments: true,
-};
+// const minify = {
+//     collapseWhitespace: true,
+//     conservativeCollapse: true,
+//     removeComments: true,
+// };
 const config = {
     entry: {
         main: './src/index.ts',
@@ -34,7 +34,14 @@ const config = {
         extensions: ['.ts', '.php', '.js', '.json'],
     },
     plugins: [
-        new CleanWebpackPlugin([process.env.themeDirectory]),
+        new CleanWebpackPlugin(['../expat'], {allowExternal: true}),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            Tether: 'tether',
+            Drop: 'tether-drop',
+            Popper: 'popper.js'
+        }),
         new webpack.WatchIgnorePlugin([
             /\.d\.ts$/
         ]),
@@ -44,29 +51,25 @@ const config = {
             minChunks: Infinity
         }),
         // new HtmlWebpackPlugin({
-        //     template: `!!raw-loader!${path.join(__dirname, 'src/views/index.php')}`,
+        //     template: `!!raw-loader!${path.join(__dirname, 'src/theme/index.php')}`,
         //     filename: 'index.php',
         //     chunks: ['main', 'commons'],
         //     transpile: false,
         //     minify,
         // }),
         extractSass,
-        new UglifyJSPlugin(),
-        new CompressionWebpackPlugin({
-            asset: '[path].gz',
-        }),
         new CopyWebpackPlugin ([
-            { from: './src/views', to: './' }
+            { from: './src/theme', to: './' }
         ]),
-        new ManifestPlugin(),
         new BrowserSyncPlugin({
-            host: 'localhost',
             port: 3000,
             proxy: process.env.appURL,
-            // watchOptions: {
-            //     ignoreInitial: true,
-            //     // ignored: './src'
-            // },
+            watchOptions: {
+                include: process.env.themeDirectory,
+                ignoreInitial: true,
+                ignored: './src'
+            },
+            injectChanges: true,
             ui: false,
             ghostMode: false,
             logPrefix: process.env.appName,
@@ -80,13 +83,6 @@ const config = {
             test: /\.js$/,
             loader: 'babel-loader',
             include: path.resolve(__dirname, "src"),
-            options: {
-                presets: [
-                    ['es2017', {
-                        modules: false,
-                    }],
-                ],
-            },
             exclude: /node_modules/,
         },
         {
@@ -115,21 +111,39 @@ const config = {
         },
         {
             test: /\.(jpe?g|png|gif|svg)/,
-            use: [{
-                loader: 'url-loader',
-                query: {
-                    limit: 5000,
-                    name: '[name].[ext]',
+            use: [
+                {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[path][name].[ext]',
+                        context: './src'
+                    }
                 },
-            },
-            {
-                loader: 'image-webpack-loader',
-                query: {
-                    mozjpeg: {
-                        quality: 65,
-                    },
+                {
+                    loader: 'image-webpack-loader',
+                    options: {
+                        mozjpeg: {
+                            progressive: true,
+                            quality: 65
+                        },
+                        // optipng.enabled: false will disable optipng
+                        optipng: {
+                            enabled: false,
+                        },
+                        pngquant: {
+                            quality: '65-90',
+                            speed: 4
+                        },
+                        gifsicle: {
+                            interlaced: false,
+                        },
+                        // the webp option will enable WEBP
+                        webp: {
+                            quality: 75
+                        }
+                    }
                 },
-            }],
+            ],
         },
         {
             test: /\.(woff|woff2|eot|ttf|otf)$/,
@@ -150,6 +164,14 @@ const config = {
 if (process.env.NODE_ENV === 'development') {
     config.watch = true;
     config.devtool = 'source-map';
-    config.plugins.push(new webpack.HotModuleReplacementPlugin());
+    config.plugins.push( new webpack.HotModuleReplacementPlugin() );
+} else {
+    config.plugins.push([
+        new UglifyJSPlugin(),
+        new CompressionWebpackPlugin({
+            asset: '[path].gz',
+        }),
+        new ManifestPlugin()
+    ]);
 }
 module.exports = config;

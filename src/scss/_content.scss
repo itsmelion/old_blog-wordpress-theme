@@ -131,7 +131,7 @@ iframe {
         width: 100%;
         height: 100%;
         background-size: cover;
-        background: url('/wp-content/themes/expat/build/images/map.jpg');
+        background: url('images/map.jpg');
     }
     h2 {
         margin-bottom: 3rem;
@@ -618,7 +618,7 @@ iframe {
         &::after {
             content: '';
             border-radius: 50%;
-            background: #fff url('/wp-content/themes/expat/build/images/stamp.png');
+            background: #fff url('images/stamp.png');
             background-size: 90% 90%;
             background-position: center center;
             background-repeat: no-repeat;
@@ -698,7 +698,7 @@ iframe {
                 right: .5rem;
                 width: 36px;
                 height: 36px;
-                background: url('build/images/arrow.svg');
+                background: url('images/arrow.svg');
                 opacity: .5;
                 margin-top: -.4rem;
                 transform-origin: center center;

@@ -1,9 +1,7 @@
-$(function () {
-  "use strict";
-  $('.slick-container').slick({
+$('.slick-container').slick({
     infinite: true,
-    slidesToShow: 3,
     slidesToScroll: 3,
+    slidesToShow: 3,
     prevArrow: '<button type="button" class="slick-prev"></button>',
     nextArrow: '<button type="button" class="slick-next"></button>',
     variableWidth: true,
@@ -11,16 +9,16 @@ $(function () {
     centerMode: true,
     dots: false,
     responsive: [{
-      breakpoint: 980,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        infinite: true,
-        dots: false
-      }
+        breakpoint: 980,
+        settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+            dots: false
+        }
     }]
-  });
-  $('#postsSlick').slick({
+});
+$('#postsSlick').slick({
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -31,13 +29,12 @@ $(function () {
     centerMode: false,
     dots: false,
     responsive: [{
-      breakpoint: 980,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        infinite: true,
-        dots: false
-      }
+        breakpoint: 980,
+        settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+            dots: false
+        }
     }]
-  });
 });
