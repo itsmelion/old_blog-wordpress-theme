@@ -13,7 +13,7 @@ body {
     line-height: $base-line-height;
     font-weight: 400;
     text-align: justify;
-    text-justify: inter-word;
+    text-justify: auto;
     max-width: 100%;
     word-wrap: break-word;
 }
@@ -57,7 +57,7 @@ h6 {
 }
 
 h1 {
-    @include font-size(2.3);
+    @include font-size(2.8);
     letter-spacing: -.05em;
     margin-bottom: 2rem;
     font-weight: 200;
@@ -73,14 +73,21 @@ header h1 {
 }
 
 h2 {
-    @include font-size(1.8);
+    @include font-size(2.3);
     letter-spacing: -.05em;
     font-weight: 300;
 }
 
 h3 {
-    @include font-size(1.1);
+    @include font-size(1.8);
+    font-weight: 400;
+    text-transform: none;
+}
+
+h4 {
+    @include font-size(1.4);
     text-transform: uppercase;
+    font-weight: 600;
 }
 
 h4,

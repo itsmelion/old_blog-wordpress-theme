@@ -71,11 +71,11 @@ function disable_emojicons_tinymce( $plugins ) {
 function html5blank_header_scripts()
 {
     if (!is_admin()) {
-        wp_deregister_script( 'jquery' );                                   // Register as 'empty', because we manually insert our script in header.php
+        wp_deregister_script( 'jquery' ); // Register as 'empty', because we manually insert our script in header.php
         wp_register_script('jquery', '', '', '', true);
     }
 
-    if(is_page('work-abroad') || is_page('apply')){
+    if(is_page('work-abroad') || is_page('apply') || is_single('destinations')){
         //wp_register_script('crm_vendor', get_template_directory_uri() . '/js/scriptname.js', array('jquery'), '1.0.0'); // Conditional script(s)
         wp_register_style('crm_css', '//crm.planetexpat.org/assets/css/app.min.css');
         wp_register_script('crm_app','//crm.planetexpat.org/assets/js/app.min.js'); // Conditional script(s)
@@ -97,6 +97,7 @@ function html5blank_header_scripts()
     }
 
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
+
         wp_enqueue_style( 'style', get_template_directory_uri().'/main.css');
         wp_enqueue_style( 'extras', get_template_directory_uri().'/extras.css');
 

@@ -23,11 +23,9 @@ import "slick-carousel/slick/slick"; // slick-carousel/slick/slick
 // import "src/scripts/vendors/*.js";
 
 require('tether/dist/js/tether');
-require('tether-drop/dist/js/drop'); // tether/dist/js/tether
+require('tether-drop/dist/js/drop');
 
 import "./scripts/core/job-board-Query";
 import "./scripts/core/drop";
 import "./scripts/lazy/caroussels";
 import "./scripts/lazy/collapsable";
-
-console.log("Loaded Index.ts");

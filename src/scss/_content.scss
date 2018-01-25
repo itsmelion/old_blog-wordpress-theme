@@ -97,6 +97,7 @@ iframe {
     background: #f5f5f5;
     min-height: 300px;
     min-height: 25vh;
+    margin: 2rem 0;
     article {
         width: 50%;
         padding: 2.5rem;
@@ -118,20 +119,15 @@ iframe {
 
 .destinations-cta {
     position: relative;
-    padding: 12rem 0;
+    padding: 4rem 0;
     flex: 0 0 auto;
+    background-color: #f5f5f5;
+
     >h2,
     iframe {
         z-index: 2;
         position: relative;
-    }
-    .background.parallax {
-        z-index: 1;
-        position: absolute;
         width: 100%;
-        height: 100%;
-        background-size: cover;
-        background: url('images/map.jpg');
     }
     h2 {
         margin-bottom: 3rem;
@@ -168,12 +164,16 @@ iframe {
     }
 }
 
+.dual-container{
+    background-color: #f5f5f5
+}
 .dual {
+    background-color: white;
     article {
         width: 50%;
         padding: 2.5rem;
-        h2 {
-            margin-bottom: 2rem;
+        h3 {
+            margin-bottom: 3rem;
         }
         @media #{$grid-sm} {
             width: 100%;
@@ -182,7 +182,6 @@ iframe {
 }
 
 .dual-img-container {
-    background: #e0e0e0;
     width: 100%;
     background-size: cover;
     background-position: center center;
@@ -258,9 +257,8 @@ iframe {
         width: 33%;
         margin-bottom: 1rem;
         align-items: center;
-        h3 {
+        h4 {
             margin: 2rem 0 1rem 0;
-            font-size: 125%;
         }
         img {
             max-width: 8rem;
@@ -279,6 +277,7 @@ iframe {
                 width: 3rem;
                 border-radius: 50%;
             }
+            h4{margin: 0}
         }
         &.big {
             &:only-of-type{width: 70%; margin: 0}
@@ -328,7 +327,7 @@ iframe {
 .destinations-articles {
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 4rem 0 5rem 0;
+    padding: 4rem 1.5rem;
     h2 {
         text-align: center;
         font-weight: 300;
@@ -361,11 +360,8 @@ iframe {
 }
 
 .destination-jobs {
-    min-height: 600px;
     min-height: 86vh;
-    width: 80%;
-    background-color: white;
-    @include shadow;
+    height: 100%;
 }
 
 .caroussel-section {
