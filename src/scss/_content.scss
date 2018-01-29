@@ -172,7 +172,7 @@ iframe {
     article {
         width: 50%;
         padding: 2.5rem;
-        h3 {
+        h2 {
             margin-bottom: 3rem;
         }
         @media #{$grid-sm} {
@@ -248,7 +248,7 @@ iframe {
     padding: 4rem 0 3rem 0;
     h2 {
         text-align: center;
-        font-weight: 300;
+        font-weight: 400;
         margin-bottom: 3rem;
     }
     .icon-item {
@@ -257,7 +257,7 @@ iframe {
         width: 33%;
         margin-bottom: 1rem;
         align-items: center;
-        h4 {
+        h3 {
             margin: 2rem 0 1rem 0;
         }
         img {

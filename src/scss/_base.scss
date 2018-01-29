@@ -18,9 +18,6 @@ section.default {
 // }
 .contain {
     max-width: 78em;
-    @media #{$grid-sm} {
-        padding: 0 1rem;
-    }
 }
 
 a[href]:not(.button) {

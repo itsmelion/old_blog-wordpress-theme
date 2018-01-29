@@ -39,28 +39,23 @@ endif;
     </div>
 </header>
 
-<div class="contain layout-row-nowrap-between" style="width:100%">
-
-	<main class="flex-none" role="main" aria-label="Content">
+<main role="main" aria-label="Content" class="contain layout-row-nowrap-between" style="width:100%">
 
 
-        <section class="layout-column-nowrap-start blog-default">
-            <?php get_template_part('loop'); ?>
-            <?php get_template_part('pagination'); ?>
-        </section>
+<section class="layout-column-nowrap-start blog-default">
+    <?php get_template_part('loop'); ?>
+</section>
 
-	</main>
+<!-- sidebar -->
+<aside class="flex-none layout-column-nowrap widget-area sidebar" role="complementary">
 
-	<!-- sidebar -->
-	<aside class="flex-none layout-column-nowrap widget-area sidebar" role="complementary">
+  <?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-area-2')): ?>
+  <div class="sidebar-widget">
+  </div>
+  <?php endif; ?>
 
-		<?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-area-2')): ?>
-		<div class="sidebar-widget">
-		</div>
-		<?php endif; ?>
-
-	</aside>
-	<!-- /sidebar -->
-</div>
+</aside>
+<!-- /sidebar -->
+</main>
 
 <?php get_footer(); ?>

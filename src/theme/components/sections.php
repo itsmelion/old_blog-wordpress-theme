@@ -11,7 +11,7 @@
             style="color:<?php echo get_sub_field('font_color_override');  ?>"
           >
             <article class="flex-start layout-column">
-              <h3><?php the_sub_field('title'); ?></h3>
+              <h2><?php the_sub_field('title'); ?></h2>
               <p><?php the_sub_field('paragraph'); ?></p>
               <a class="button orange" href="<?php the_sub_field('call_to_action-URL'); ?>"><?php the_sub_field('call_to_action-text'); ?></a>
             </article>
@@ -64,8 +64,8 @@
                 <!-- CENTRALIZED -->
                 <article class="layout-column text-center icon-item">
                   <img src="<?php echo $img['url']; ?>" />
-                  <h4><?php the_sub_field('info_title'); ?></h4>
-                  <h5><?php the_sub_field('info_description'); ?></h5>
+                  <h3><?php the_sub_field('info_title'); ?></h3>
+                  <h4><?php the_sub_field('info_description'); ?></h4>
                   <p><?php the_sub_field('paragraph'); ?></p>
                 </article>
               <?php endif; ?>

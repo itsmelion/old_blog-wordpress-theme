@@ -38,27 +38,27 @@ endif;
     </div>
 </header>
 
-<div class="contain layout-row-nowrap-between" style="width:100%">
-
-	<main class="flex-none" role="main" aria-label="Content">
 
 
-        <section class="layout-column-nowrap-start blog-default">
-            <?php get_template_part('loop'); ?>
-        </section>
+<main role="main" aria-label="Content" class="contain layout-row-nowrap-between" style="width:100%">
 
-	</main>
 
-	<!-- sidebar -->
-	<aside class="flex-none layout-column-nowrap widget-area sidebar" role="complementary">
+  <section class="layout-column-nowrap-start blog-default">
+      <?php get_template_part('loop'); ?>
+  </section>
 
-		<?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-area-2')): ?>
-		<div class="sidebar-widget">
-		</div>
-		<?php endif; ?>
+  <!-- sidebar -->
+  <aside class="flex-none layout-column-nowrap widget-area sidebar" role="complementary">
 
-	</aside>
-	<!-- /sidebar -->
-</div>
+    <?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-area-2')): ?>
+    <div class="sidebar-widget">
+    </div>
+    <?php endif; ?>
+
+  </aside>
+  <!-- /sidebar -->
+</main>
+
+
 
 <?php get_footer(); ?>
