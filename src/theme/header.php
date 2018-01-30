@@ -2,7 +2,11 @@
 
 <head>
 
+<link rel=preload href="<?php echo get_bloginfo('template_url') ?>/jquery.slim.js" as="script"></link>
+<script src="<?php echo get_bloginfo('template_url') ?>/jquery.slim.js"></script>
+
 <?php if (!WP_DEBUG) { ?>
+
 	<!-- Google Tag Manager -->
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -60,6 +64,7 @@
     <meta property="og:url" content="<?php echo get_bloginfo('template_url') ?>" />
 
     <meta property="twitter:title" content="<?php bloginfo('name'); ?>" />
+
     <?php wp_head(); ?>
 </head>
 

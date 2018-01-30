@@ -101,11 +101,9 @@ function html5blank_header_scripts()
         wp_enqueue_style( 'style', get_template_directory_uri().'/main.css');
         wp_enqueue_style( 'extras', get_template_directory_uri().'/extras.css');
 
-        wp_register_script('vendors', get_template_directory_uri() . '/commons.js', array(), '1.0.0', true);
         wp_register_script('app', get_template_directory_uri() . '/main.js', array(), '1.0.0', true);
 
         // Enqueue Scripts
-        wp_enqueue_script('vendors');
         wp_enqueue_script('app');
 
     }

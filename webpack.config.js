@@ -29,6 +29,8 @@ const config = {
         filename: '[name].js',
         path: path.join(__dirname, process.env.themeDirectory),
         publicPath: process.env.themeDirectory,
+        hotUpdateChunkFilename: 'hot/hot-update.js',
+        hotUpdateMainFilename: 'hot/hot-update.json'
     },
     resolve: {
         extensions: ['.ts', '.php', '.js', '.json'],
@@ -43,13 +45,9 @@ const config = {
             Popper: 'popper.js'
         }),
         new webpack.WatchIgnorePlugin([
-            /\.d\.ts$/
+            /\.d\.ts$/,
+            /.DS_Store$/
         ]),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'commons',
-            filename: 'commons.js',
-            minChunks: Infinity
-        }),
         // new HtmlWebpackPlugin({
         //     template: `!!raw-loader!${path.join(__dirname, 'src/theme/index.php')}`,
         //     filename: 'index.php',
@@ -59,7 +57,9 @@ const config = {
         // }),
         extractSass,
         new CopyWebpackPlugin ([
-            { from: './src/theme', to: './' }
+            { from: './src/theme', to: './' },
+            { from: './node_modules/jquery/dist/jquery.slim.min.js', to: './jquery.slim.js' },
+            { from: './node_modules/jquery/dist/jquery.min.js', to: './jquery.js' },
         ]),
         new BrowserSyncPlugin({
             port: 3000,
@@ -166,12 +166,12 @@ if (process.env.NODE_ENV === 'development') {
     config.devtool = 'source-map';
     config.plugins.push( new webpack.HotModuleReplacementPlugin() );
 } else {
-    config.plugins.push([
+    config.plugins.push(
         new UglifyJSPlugin(),
         new CompressionWebpackPlugin({
             asset: '[path].gz',
         }),
         new ManifestPlugin()
-    ]);
+    );
 }
 module.exports = config;

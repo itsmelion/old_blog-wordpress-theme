@@ -17,7 +17,6 @@ const images = importAll(
 
 import './main.scss';
 
-import $ from 'jquery'; // import "jquery/dist/jquery";
 import "pace-js"; // pace-js/pace.js
 import "slick-carousel/slick/slick"; // slick-carousel/slick/slick
 // import "src/scripts/vendors/*.js";
